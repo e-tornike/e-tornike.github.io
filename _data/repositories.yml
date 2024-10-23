@@ -1,14 +1,12 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - e-tornike
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - e-tornike/SIL
+  - vadis-project/sv-ident
+  - umanlp/ZusammenQA
+  - e-tornike/best-of-ml-rust
+  - e-tornike/Story_Generator
+  - e-tornike/arxiv-daily-summaries
