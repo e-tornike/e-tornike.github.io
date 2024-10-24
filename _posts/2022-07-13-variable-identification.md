@@ -26,10 +26,10 @@ image:
   preview_only: false
 
 tags:
-  - Natural Language Processing
+  - NLP
   - Computational Social Science
   - Entity Linking
-  - Scholarly NLP
+  - Scholarly Document Processing
   - Information Retrieval
 ---
 
