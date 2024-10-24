@@ -15,4 +15,4 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a Machine Learning Researcher and Engineer with a focus on Natural Language Processing (NLP). My research interests include [Scholarly Document Processing](https://sdproc.org/), Multilingual NLP, and AI for Software Engineering.
+I am a Machine Learning Researcher and Engineer with a focus on Natural Language Processing (NLP). I am passionate about using Machine Learning (ML) to solve complex, real-world problems. My present focus is on improving the performance of Large Language Models (LLMs) in domain-specific and multilingual settings. My research interests include [Scholarly Document Processing](https://sdproc.org/), Multilingual NLP, Information Retrieval (e.g., for Retrieval-Augmented Generation),  AI for Software Engineering.
