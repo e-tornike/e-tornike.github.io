@@ -301,7 +301,7 @@ jekyll-archives:
     category: "/blog/category/:name/"
 
 display_tags: ["NLP", "Computational Social Science", "Entity Linking", "Scholarly Document Processing", "Information Retrieval"] # these tags will be displayed on the front page of your blog
-display_categories: ["external-services"] # these categories will be displayed on the front page of your blog
+display_categories: [] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
