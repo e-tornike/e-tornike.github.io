@@ -1,80 +1,6 @@
 ---
 ---
 
-@inproceedings{tsereteli-etal-2022-overview,
-    title = "Overview of the {SV}-Ident 2022 Shared Task on Survey Variable Identification in Social Science Publications",
-    author = "Tsereteli, Tornike  and
-      Kartal, Yavuz Selim  and
-      Ponzetto, Simone Paolo  and
-      Zielinski, Andrea  and
-      Eckert, Kai  and
-      Mayr, Philipp",
-    editor = "Cohan, Arman  and
-      Feigenblat, Guy  and
-      Freitag, Dayne  and
-      Ghosal, Tirthankar  and
-      Herrmannova, Drahomira  and
-      Knoth, Petr  and
-      Lo, Kyle  and
-      Mayr, Philipp  and
-      Shmueli-Scheuer, Michal  and
-      de Waard, Anita  and
-      Wang, Lucy Lu",
-    booktitle = "Proceedings of the Third Workshop on Scholarly Document Processing",
-    month = oct,
-    year = "2022",
-    address = "Gyeongju, Republic of Korea",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2022.sdp-1.29",
-    pages = "229--246",
-    abstract = "In this paper, we provide an overview of the SV-Ident shared task as part of the 3rd Workshop on Scholarly Document Processing (SDP) at COLING 2022. In the shared task, participants were provided with a sentence and a vocabulary of variables, and asked to identify which variables, if any, are mentioned in individual sentences from scholarly documents in full text. Two teams made a total of 9 submissions to the shared task leaderboard. While none of the teams improve on the baseline systems, we still draw insights from their submissions. Furthermore, we provide a detailed evaluation. Data and baselines for our shared task are freely available at \url{https://github.com/vadis-project/sv-ident}.",
-    selected = "true",
-    pdf = "https://aclanthology.org/2022.sdp-1.29.pdf",
-    code = "https://github.com/vadis-project/sv-ident"
-}
-
-@inproceedings{hung-etal-2022-zusammenqa,
-    title = "{Z}usammen{QA}: Data Augmentation with Specialized Models for Cross-lingual Open-retrieval Question Answering System",
-    author = "Hung, Chia-Chien  and
-      Green, Tommaso  and
-      Litschko, Robert  and
-      Tsereteli, Tornike  and
-      Takeshita, Sotaro  and
-      Bombieri, Marco  and
-      Glava{\v{s}}, Goran  and
-      Ponzetto, Simone Paolo",
-    editor = "Asai, Akari  and
-      Choi, Eunsol  and
-      Clark, Jonathan H.  and
-      Hu, Junjie  and
-      Lee, Chia-Hsuan  and
-      Kasai, Jungo  and
-      Longpre, Shayne  and
-      Yamada, Ikuya  and
-      Zhang, Rui",
-    booktitle = "Proceedings of the Workshop on Multilingual Information Access (MIA)",
-    month = jul,
-    year = "2022",
-    address = "Seattle, USA",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2022.mia-1.8",
-    doi = "10.18653/v1/2022.mia-1.8",
-    pages = "77--90",
-    abstract = "This paper introduces our proposed system for the MIA Shared Task on Cross-lingual Openretrieval Question Answering (COQA). In this challenging scenario, given an input question the system has to gather evidence documents from a multilingual pool and generate from them an answer in the language of the question. We devised several approaches combining different model variants for three main components: Data Augmentation, Passage Retrieval, and Answer Generation. For passage retrieval, we evaluated the monolingual BM25 ranker against the ensemble of re-rankers based on multilingual pretrained language models (PLMs) and also variants of the shared task baseline, re-training it from scratch using a recently introduced contrastive loss that maintains a strong gradient signal throughout training by means of mixed negative samples. For answer generation, we focused on languageand domain-specialization by means of continued language model (LM) pretraining of existing multilingual encoders. Additionally, for both passage retrieval and answer generation, we augmented the training data provided by the task organizers with automatically generated question-answer pairs created from Wikipedia passages to mitigate the issue of data scarcity, particularly for the low-resource languages for which no training data were provided. Our results show that language- and domain-specialization as well as data augmentation help, especially for low-resource languages.",
-    pdf = "https://aclanthology.org/2022.mia-1.8.pdf",
-    code = "https://github.com/umanlp/ZusammenQA",
-}
-
-@misc{kartal2022automatedsurveyvariablesearch,
-      title={Towards Automated Survey Variable Search and Summarization in Social Science Publications}, 
-      author={Yavuz Selim Kartal and Sotaro Takeshita and Tornike Tsereteli and Kai Eckert and Henning Kroll and Philipp Mayr and Simone Paolo Ponzetto and Benjamin Zapilko and Andrea Zielinski},
-      year={2022},
-      eprint={2209.06804},
-      archivePrefix={arXiv},
-      primaryClass={cs.DL},
-      url={https://arxiv.org/abs/2209.06804},
-}
-
 @misc{tsereteli-etal-2024,
     title = "(Under Review at the International Journal on Digital Libraries) Enriching Social Science Research via Survey Item Linking",
     author = "Tsereteli, Tornike  and
@@ -109,6 +35,80 @@
     abstract="The VADIS system addresses the demand of providing enhanced information access in the domain of the social sciences. This is achieved by allowing users to search and use survey variables in context of their underlying research data and scholarly publications which have been interlinked with each other.",
     isbn="978-3-031-56069-9",
     selected = "true",
+}
+
+@inproceedings{tsereteli-etal-2022-overview,
+    title = "Overview of the {SV}-Ident 2022 Shared Task on Survey Variable Identification in Social Science Publications",
+    author = "Tsereteli, Tornike  and
+      Kartal, Yavuz Selim  and
+      Ponzetto, Simone Paolo  and
+      Zielinski, Andrea  and
+      Eckert, Kai  and
+      Mayr, Philipp",
+    editor = "Cohan, Arman  and
+      Feigenblat, Guy  and
+      Freitag, Dayne  and
+      Ghosal, Tirthankar  and
+      Herrmannova, Drahomira  and
+      Knoth, Petr  and
+      Lo, Kyle  and
+      Mayr, Philipp  and
+      Shmueli-Scheuer, Michal  and
+      de Waard, Anita  and
+      Wang, Lucy Lu",
+    booktitle = "Proceedings of the Third Workshop on Scholarly Document Processing",
+    month = oct,
+    year = "2022",
+    address = "Gyeongju, Republic of Korea",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.sdp-1.29",
+    pages = "229--246",
+    abstract = "In this paper, we provide an overview of the SV-Ident shared task as part of the 3rd Workshop on Scholarly Document Processing (SDP) at COLING 2022. In the shared task, participants were provided with a sentence and a vocabulary of variables, and asked to identify which variables, if any, are mentioned in individual sentences from scholarly documents in full text. Two teams made a total of 9 submissions to the shared task leaderboard. While none of the teams improve on the baseline systems, we still draw insights from their submissions. Furthermore, we provide a detailed evaluation. Data and baselines for our shared task are freely available at \url{https://github.com/vadis-project/sv-ident}.",
+    selected = "true",
+    pdf = "https://aclanthology.org/2022.sdp-1.29.pdf",
+    code = "https://github.com/vadis-project/sv-ident"
+}
+
+@misc{kartal2022automatedsurveyvariablesearch,
+      title={Towards Automated Survey Variable Search and Summarization in Social Science Publications}, 
+      author={Yavuz Selim Kartal and Sotaro Takeshita and Tornike Tsereteli and Kai Eckert and Henning Kroll and Philipp Mayr and Simone Paolo Ponzetto and Benjamin Zapilko and Andrea Zielinski},
+      year={2022},
+      eprint={2209.06804},
+      archivePrefix={arXiv},
+      primaryClass={cs.DL},
+      url={https://arxiv.org/abs/2209.06804},
+}
+
+@inproceedings{hung-etal-2022-zusammenqa,
+    title = "{Z}usammen{QA}: Data Augmentation with Specialized Models for Cross-lingual Open-retrieval Question Answering System",
+    author = "Hung, Chia-Chien  and
+      Green, Tommaso  and
+      Litschko, Robert  and
+      Tsereteli, Tornike  and
+      Takeshita, Sotaro  and
+      Bombieri, Marco  and
+      Glava{\v{s}}, Goran  and
+      Ponzetto, Simone Paolo",
+    editor = "Asai, Akari  and
+      Choi, Eunsol  and
+      Clark, Jonathan H.  and
+      Hu, Junjie  and
+      Lee, Chia-Hsuan  and
+      Kasai, Jungo  and
+      Longpre, Shayne  and
+      Yamada, Ikuya  and
+      Zhang, Rui",
+    booktitle = "Proceedings of the Workshop on Multilingual Information Access (MIA)",
+    month = jul,
+    year = "2022",
+    address = "Seattle, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.mia-1.8",
+    doi = "10.18653/v1/2022.mia-1.8",
+    pages = "77--90",
+    abstract = "This paper introduces our proposed system for the MIA Shared Task on Cross-lingual Openretrieval Question Answering (COQA). In this challenging scenario, given an input question the system has to gather evidence documents from a multilingual pool and generate from them an answer in the language of the question. We devised several approaches combining different model variants for three main components: Data Augmentation, Passage Retrieval, and Answer Generation. For passage retrieval, we evaluated the monolingual BM25 ranker against the ensemble of re-rankers based on multilingual pretrained language models (PLMs) and also variants of the shared task baseline, re-training it from scratch using a recently introduced contrastive loss that maintains a strong gradient signal throughout training by means of mixed negative samples. For answer generation, we focused on languageand domain-specialization by means of continued language model (LM) pretraining of existing multilingual encoders. Additionally, for both passage retrieval and answer generation, we augmented the training data provided by the task organizers with automatically generated question-answer pairs created from Wikipedia passages to mitigate the issue of data scarcity, particularly for the low-resource languages for which no training data were provided. Our results show that language- and domain-specialization as well as data augmentation help, especially for low-resource languages.",
+    pdf = "https://aclanthology.org/2022.mia-1.8.pdf",
+    code = "https://github.com/umanlp/ZusammenQA",
 }
 
 @article{Saier2022-ej,
