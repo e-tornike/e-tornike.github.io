@@ -4,15 +4,15 @@
 
 "IJDL":
   url: "https://link.springer.com/journal/799"
-  color: "#ecfad2"
+  color: "#d5d6d4"
 
 "ECIR":
-  color: "#ecfad2"
+  color: "#d5d6d4"
 
 "SDP":
   url: "https://sdproc.org/"
-  color: "#ecfad2"
+  color: "#d5d6d4"
 
 "MIA":
   url: "https://mia-workshop.github.io/"
-  color: "#ecfad2"
+  color: "#d5d6d4"
