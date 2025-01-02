@@ -61,8 +61,6 @@
         {% assign author_is_self = false %}
         {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
         {%- assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
-        {%- assign author_last_name | regex_replace: 'Tsereteli', '<b>Tsereteli</b>' -%}
-        {%- assign author_last_html | regex_replace: 'Tsereteli', '<b>Tsereteli</b>' -%}
         {% if site.scholar.last_name contains author_last_name %}
           {% if site.scholar.first_name contains author.first %}
             {% assign author_is_self = true %}
