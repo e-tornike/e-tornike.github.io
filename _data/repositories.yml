@@ -5,8 +5,8 @@ repo_description_lines_max: 2
 
 github_repos:
   - e-tornike/SIL
-  - vadis-project/sv-ident
-  - umanlp/ZusammenQA
+  - e-tornike/variable-search-demo
   - e-tornike/best-of-ml-rust
-  - e-tornike/Story_Generator
+  - e-tornike/openreviewexplorer
   - e-tornike/arxiv-daily-summaries
+  - e-tornike/Story_Generator
