@@ -266,7 +266,7 @@ For Variable Detection, this article trained models for both English and German 
 The second and more challenging task for identifying variable mentions is Variable Disambiguation. It deals with identifying which variable(s) from a candidate set of hundreds or thousands of variables is being referenced for a given sentence containing a variable mention. A simple formulation for the task is _retrieval_: given a large set of candidate variables, retrieve the top _k_ most likely relevant variables. To further simplify the task, rather than requiring the full architecture of an _Information Retrieval_ system, this article will only demonstrate how to run pair-wise vector similarity computations. More specifically, each sentence containing a variable mention will be compared to the variable metadata for the candidate variables. The assumption here is that the more similar a variable mention and the metadata are, the more likely the sentence is in fact referencing this variable. In other words, the similarity scores will as proxies. The most similar _k_ variables will then be considered as predictions for a given example.
 
 ## Cosine Similarity using Bag-of-Words
-Different from the previous examples, in addition to loaded the dataset, the variable metadata also needs to be downloaded and loaded. The variable metadata is available here (https://bit.ly/3Nuvqdu) and can be downloaded manually or programmatically.
+Different from the previous examples, in addition to loaded the dataset, the variable metadata also needs to be downloaded and loaded. The variable metadata is available [here](https://github.com/vadis-project/sv-ident) and can be downloaded manually or programmatically.
 
 ```python
 import gdown
