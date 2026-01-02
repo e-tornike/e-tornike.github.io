@@ -42,17 +42,13 @@
   --global-danger-block-text: #600;
   --global-danger-block-title: #c00;
 
-  #light-toggle-system {
+  #light-toggle-light {
     padding-left: 10px;
     padding-top: 12px;
     display: block;
   }
 
-  #light-toggle-dark {
-    display: none;
-  }
-
-  #light-toggle-light {
+  #light-toggle-terminal {
     display: none;
   }
 
@@ -119,39 +115,73 @@ html[data-theme="dark"] {
   }
 }
 
-html[data-theme-setting="dark"] {
-  #light-toggle-system {
-    display: none;
-  }
-
-  #light-toggle-dark {
+html[data-theme-setting="light"] {
+  #light-toggle-light {
     padding-left: 10px;
     padding-top: 12px;
     display: block;
   }
 
+  #light-toggle-terminal {
+    display: none;
+  }
+}
+
+// Terminal Theme
+html[data-theme="terminal"] {
+  --global-bg-color: #{$terminal-bg};
+  --global-code-bg-color: #{$code-bg-color-terminal};
+  --global-text-color: #{$terminal-text-bright};
+  --global-text-color-light: #{$terminal-text};
+  --global-theme-color: #{$terminal-green};
+  --global-hover-color: #{$terminal-cyan};
+  --global-hover-text-color: #{$terminal-bg};
+  --global-footer-bg-color: #{$terminal-bg-light};
+  --global-footer-text-color: #{$terminal-text};
+  --global-footer-link-color: #{$terminal-green};
+  --global-distill-app-color: #{$terminal-text};
+  --global-divider-color: #{$terminal-green-dim};
+  --global-card-bg-color: #{$terminal-bg-light};
+  --global-highlight-color: #{$terminal-amber};
+  --global-back-to-top-bg-color: rgba(0, 255, 0, 0.2);
+  --global-back-to-top-text-color: #{$terminal-green};
+  --global-newsletter-bg-color: #{$terminal-bg-light};
+  --global-newsletter-text-color: #{$terminal-text-bright};
+
+  --global-tip-block: #{$terminal-green};
+  --global-tip-block-bg: rgba(0, 255, 0, 0.1);
+  --global-tip-block-text: #{$terminal-green};
+  --global-tip-block-title: #{$terminal-green};
+  --global-warning-block: #{$terminal-amber};
+  --global-warning-block-bg: rgba(255, 176, 0, 0.1);
+  --global-warning-block-text: #{$terminal-amber};
+  --global-warning-block-title: #{$terminal-amber};
+  --global-danger-block: #ff4444;
+  --global-danger-block-bg: rgba(255, 68, 68, 0.1);
+  --global-danger-block-text: #ff4444;
+  --global-danger-block-title: #ff4444;
+
+  .repo-img-light {
+    display: none;
+  }
+  .repo-img-dark {
+    display: block;
+  }
+}
+
+html[data-theme-setting="terminal"] {
   #light-toggle-light {
     display: none;
+  }
+
+  #light-toggle-terminal {
+    padding-left: 10px;
+    padding-top: 12px;
+    display: block;
   }
 
   #back-to-top {
     color: var(--global-back-to-top-text-color);
     background: var(--global-back-to-top-bg-color);
-  }
-}
-
-html[data-theme-setting="light"] {
-  #light-toggle-system {
-    display: none;
-  }
-
-  #light-toggle-dark {
-    display: none;
-  }
-
-  #light-toggle-light {
-    padding-left: 10px;
-    padding-top: 12px;
-    display: block;
   }
 }

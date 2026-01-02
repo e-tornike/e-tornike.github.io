@@ -37,6 +37,17 @@ $black-color: #000000 !default;
 $code-bg-color-light: rgba($purple-color, 0.05);
 $code-bg-color-dark: #2c3237 !default;
 
+// Terminal theme colors
+$terminal-bg: #0a0a0a !default;
+$terminal-bg-light: #121212 !default;
+$terminal-green: #00ff00 !default;
+$terminal-green-dim: #00cc00 !default;
+$terminal-amber: #ffb000 !default;
+$terminal-cyan: #00ffff !default;
+$terminal-text: #b0b0b0 !default;
+$terminal-text-bright: #e0e0e0 !default;
+$code-bg-color-terminal: rgba($terminal-green, 0.08);
+
 // Font awesome location
 $fa-font-path: "../webfonts";
 

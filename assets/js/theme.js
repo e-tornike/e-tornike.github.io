@@ -1,14 +1,12 @@
 // Has to be in the head tag, otherwise a flicker effect will occur.
 
-// Toggle through light, dark, and system theme settings.
+// Toggle between light and terminal theme settings.
 let toggleThemeSetting = () => {
   let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    setThemeSetting("light");
-  } else if (themeSetting == "light") {
-    setThemeSetting("dark");
+  if (themeSetting == "light") {
+    setThemeSetting("terminal");
   } else {
-    setThemeSetting("system");
+    setThemeSetting("light");
   }
 };
 
@@ -21,7 +19,7 @@ let setThemeSetting = (themeSetting) => {
   applyTheme();
 };
 
-// Apply the computed dark or light theme to the website.
+// Apply the computed light or terminal theme to the website.
 let applyTheme = () => {
   let theme = determineComputedTheme();
 
@@ -55,7 +53,7 @@ let applyTheme = () => {
   // Add class to tables.
   let tables = document.getElementsByTagName("table");
   for (let i = 0; i < tables.length; i++) {
-    if (theme == "dark") {
+    if (theme == "terminal") {
       tables[i].classList.add("table-dark");
     } else {
       tables[i].classList.remove("table-dark");
@@ -66,7 +64,7 @@ let applyTheme = () => {
   let jupyterNotebooks = document.getElementsByClassName("jupyter-notebook-iframe-container");
   for (let i = 0; i < jupyterNotebooks.length; i++) {
     let bodyElement = jupyterNotebooks[i].getElementsByTagName("iframe")[0].contentWindow.document.body;
-    if (theme == "dark") {
+    if (theme == "terminal") {
       bodyElement.setAttribute("data-jp-theme-light", "false");
       bodyElement.setAttribute("data-jp-theme-name", "JupyterLab Dark");
     } else {
@@ -84,7 +82,7 @@ let applyTheme = () => {
 };
 
 let setHighlight = (theme) => {
-  if (theme == "dark") {
+  if (theme == "terminal") {
     document.getElementById("highlight_theme_light").media = "none";
     document.getElementById("highlight_theme_dark").media = "";
   } else {
@@ -100,9 +98,12 @@ let setGiscusTheme = (theme) => {
     iframe.contentWindow.postMessage({ giscus: message }, "https://giscus.app");
   }
 
+  // Map terminal theme to dark for Giscus
+  let giscusTheme = theme == "terminal" ? "dark" : theme;
+
   sendMessage({
     setConfig: {
-      theme: theme,
+      theme: giscusTheme,
     },
   });
 };
@@ -122,7 +123,10 @@ let addMermaidZoom = (records, observer) => {
 };
 
 let setMermaidTheme = (theme) => {
-  if (theme == "light") {
+  // Map terminal theme to dark for Mermaid
+  if (theme == "terminal") {
+    theme = "dark";
+  } else if (theme == "light") {
     // light theme name in mermaid is 'default'
     // https://mermaid.js.org/config/theming.html#available-themes
     theme = "default";
@@ -148,11 +152,14 @@ let setMermaidTheme = (theme) => {
 };
 
 let setDiff2htmlTheme = (theme) => {
+  // Map terminal theme to dark for diff2html
+  let diff2htmlTheme = theme == "terminal" ? "dark" : theme;
+
   document.querySelectorAll(".diff2html").forEach((elem) => {
     // Get the code block content from previous element, since it is the diff code itself as defined in Markdown, but it is hidden
     let textData = elem.previousSibling.childNodes[0].innerHTML;
     elem.innerHTML = "";
-    const configuration = { colorScheme: theme, drawFileList: true, highlight: true, matching: "lines" };
+    const configuration = { colorScheme: diff2htmlTheme, drawFileList: true, highlight: true, matching: "lines" };
     const diff2htmlUi = new Diff2HtmlUI(elem, textData, configuration);
     diff2htmlUi.draw();
   });
@@ -164,7 +171,7 @@ let setEchartsTheme = (theme) => {
     let jsonData = elem.previousSibling.childNodes[0].innerHTML;
     echarts.dispose(elem);
 
-    if (theme === "dark") {
+    if (theme === "terminal") {
       var chart = echarts.init(elem, "dark-fresh-cut");
     } else {
       var chart = echarts.init(elem);
@@ -179,7 +186,7 @@ let setVegaLiteTheme = (theme) => {
     // Get the code block content from previous element, since it is the vega lite code itself as defined in Markdown, but it is hidden
     let jsonData = elem.previousSibling.childNodes[0].innerHTML;
     elem.innerHTML = "";
-    if (theme === "dark") {
+    if (theme === "terminal") {
       vegaEmbed(elem, JSON.parse(jsonData), { theme: "dark" });
     } else {
       vegaEmbed(elem, JSON.parse(jsonData));
@@ -191,7 +198,7 @@ let setSearchTheme = (theme) => {
   const ninjaKeys = document.querySelector("ninja-keys");
   if (!ninjaKeys) return;
 
-  if (theme === "dark") {
+  if (theme === "terminal") {
     ninjaKeys.classList.add("dark");
   } else {
     ninjaKeys.classList.remove("dark");
@@ -205,30 +212,19 @@ let transTheme = () => {
   }, 500);
 };
 
-// Determine the expected state of the theme toggle, which can be "dark", "light", or
-// "system". Default is "system".
+// Determine the expected state of the theme toggle, which can be "light" or "terminal".
+// Default is "light".
 let determineThemeSetting = () => {
   let themeSetting = localStorage.getItem("theme");
-  if (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") {
-    themeSetting = "system";
+  if (themeSetting != "light" && themeSetting != "terminal") {
+    themeSetting = "light";
   }
   return themeSetting;
 };
 
-// Determine the computed theme, which can be "dark" or "light". If the theme setting is
-// "system", the computed theme is determined based on the user's system preference.
+// Determine the computed theme, which can be "light" or "terminal".
 let determineComputedTheme = () => {
-  let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    const userPref = window.matchMedia;
-    if (userPref && userPref("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    } else {
-      return "light";
-    }
-  } else {
-    return themeSetting;
-  }
+  return determineThemeSetting();
 };
 
 let initTheme = () => {
@@ -243,10 +239,102 @@ let initTheme = () => {
     mode_toggle.addEventListener("click", function () {
       toggleThemeSetting();
     });
+
+    // Initialize text scramble effect for terminal theme
+    initTextScramble();
+  });
+};
+
+// Text scramble effect for terminal theme
+const scrambleChars = "!<>-_\\/[]{}—=+*^?#________";
+
+class TextScramble {
+  constructor(el) {
+    this.el = el;
+    this.originalText = el.textContent;
+    this.chars = scrambleChars;
+    this.frameRequest = null;
+    this.frame = 0;
+    this.queue = [];
+    this.resolve = null;
+  }
+
+  setText(newText) {
+    const oldText = this.el.textContent;
+    const length = Math.max(oldText.length, newText.length);
+    const promise = new Promise((resolve) => (this.resolve = resolve));
+    this.queue = [];
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || "";
+      const to = newText[i] || "";
+      const start = Math.floor(Math.random() * 30);
+      const end = start + Math.floor(Math.random() * 30) + 20;
+      this.queue.push({ from, to, start, end });
+    }
+    cancelAnimationFrame(this.frameRequest);
+    this.frame = 0;
+    this.update();
+    return promise;
+  }
+
+  update() {
+    let output = "";
+    let complete = 0;
+    for (let i = 0, n = this.queue.length; i < n; i++) {
+      let { from, to, start, end, char } = this.queue[i];
+      if (this.frame >= end) {
+        complete++;
+        output += to;
+      } else if (this.frame >= start) {
+        if (!char || Math.random() < 0.28) {
+          char = this.chars[Math.floor(Math.random() * this.chars.length)];
+          this.queue[i].char = char;
+        }
+        output += `<span class="scramble-char">${char}</span>`;
+      } else {
+        output += from;
+      }
+    }
+    this.el.innerHTML = output;
+    if (complete === this.queue.length) {
+      this.resolve();
+    } else {
+      this.frameRequest = requestAnimationFrame(() => this.update());
+      this.frame++;
+    }
+  }
+
+  reset() {
+    cancelAnimationFrame(this.frameRequest);
+    this.el.textContent = this.originalText;
+  }
+}
+
+let initTextScramble = () => {
+  // Only apply to content links, not navbar or buttons
+  const contentSelectors = [
+    ".post-content a",
+    ".publications a:not(.btn)",
+    ".projects a:not(.btn)",
+    ".post-list a",
+    "article a",
+  ];
+
+  document.querySelectorAll(contentSelectors.join(", ")).forEach((link) => {
+    // Skip links that are just icons or images
+    if (!link.textContent.trim() || link.querySelector("img, i, svg")) return;
+
+    const scrambler = new TextScramble(link);
+
+    link.addEventListener("mouseenter", () => {
+      if (determineComputedTheme() === "terminal") {
+        scrambler.setText(scrambler.originalText);
+      }
+    });
+
+    link.addEventListener("mouseleave", () => {
+      scrambler.reset();
+    });
   });
 
-  // Add event listener to the system theme preference change.
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
-    applyTheme();
-  });
 };

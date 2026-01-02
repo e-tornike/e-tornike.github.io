@@ -3,6 +3,7 @@ github_users:
 
 repo_description_lines_max: 2
 
+# Legacy github_repos list for backwards compatibility
 github_repos:
   - e-tornike/SIL
   - e-tornike/variable-search-demo
@@ -10,3 +11,35 @@ github_repos:
   - e-tornike/openreviewexplorer
   - e-tornike/arxiv-daily-summaries
   - e-tornike/Story_Generator
+
+# New projects format with optional description, github, and demo fields
+projects:
+  - name: SIL
+    description: Syntactic Implicature Labelling - A tool for analyzing syntactic implicatures in text.
+    github: e-tornike/SIL
+    # demo: https://example.com/sil-demo
+
+  - name: Variable Search Demo
+    description: Interactive demo for variable search functionality.
+    github: e-tornike/variable-search-demo
+    demo: https://e-tornike.github.io/variable-search-demo/
+
+  - name: Best of ML Rust
+    description: A curated list of the best machine learning libraries and tools written in Rust.
+    github: e-tornike/best-of-ml-rust
+    # demo:
+
+  - name: OpenReview Explorer
+    description: Explore and analyze papers from OpenReview venues.
+    github: e-tornike/openreviewexplorer
+    demo: https://e-tornike.github.io/openreviewexplorer/
+
+  - name: arXiv Daily Summaries
+    description: Automated daily summaries of arXiv papers using AI.
+    github: e-tornike/arxiv-daily-summaries
+    # demo:
+
+  - name: Story Generator
+    description: A creative writing tool for generating stories.
+    github: e-tornike/Story_Generator
+    # demo:

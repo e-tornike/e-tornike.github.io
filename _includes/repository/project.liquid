@@ -1,0 +1,35 @@
+<div class="project-item row mb-4">
+  <div class="col-sm-12">
+    <!-- Title -->
+    <div class="title font-weight-bold">
+      {% if include.project.github %}
+        <a href="https://github.com/{{ include.project.github }}" target="_blank" rel="noopener noreferrer">
+          {{ include.project.name }}
+        </a>
+      {% else %}
+        {{ include.project.name }}
+      {% endif %}
+    </div>
+
+    <!-- Description -->
+    {% if include.project.description %}
+      <div class="description mt-1">
+        {{ include.project.description }}
+      </div>
+    {% endif %}
+
+    <!-- Links/Buttons -->
+    <div class="links mt-2">
+      {% if include.project.github %}
+        <a href="https://github.com/{{ include.project.github }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">
+          <i class="ti ti-brand-github"></i> GitHub
+        </a>
+      {% endif %}
+      {% if include.project.demo %}
+        <a href="{{ include.project.demo }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">
+          <i class="ti ti-external-link"></i> Demo
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
